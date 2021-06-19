@@ -1,0 +1,12 @@
+version: '3.2'
+services:
+  cypress:
+    image: 'cypress/included:6.6.0'
+    environment:
+      - CYPRESS_environment=test
+      - DISPLAY
+    working_dir: /test
+    volumes:
+      - ./:/test
+      - /tmp/.X11-unix:/tmp/.X11-unix
+    command: "--spec /test/cypress/integration/iodine_test/career_site_test.spec.js"
